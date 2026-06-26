@@ -1,0 +1,17 @@
+const articles = [
+{ id: 1, title: "Best AI Tools for Content Creators", page: "article.html" },
+{ id: 2, title: "Best AI Tools for Students in 2026", page: "article1.html" },
+{ id: 3, title: "Top Free AI Tools You Can Use Today", page: "article2.html" },
+{ id: 4, title: "ChatGPT vs Claude vs Gemini: Full Comparison", page: "article3.html" },
+{ id: 5, title: "Best AI Image Generators in 2026", page: "article4.html" },
+{ id: 6, title: "Best AI Coding Assistants for Developers", page: "article5.html" },
+{ id: 7, title: "Top AI Resume Builders for Job Seekers", page: "article6.html" },
+{ id: 8, title: "Best AI Tools for Graphic Designers", page: "article7.html" },
+{ id: 9, title: "AI Tools Every Freelancer Should Know", page: "article8.html" },
+{ id: 10, title: "Top AI Video Editing Tools", page: "article9.html" },
+{ id: 11, title: "Best AI Chatbots Available Right Now", page: "article10.html" },
+{ id: 12, title: "AI Productivity Tools That Save Time", page: "article11.html" },
+{ id: 13, title: "How to Create AI Images Like a Pro", page: "article12.html" },
+{ id: 14, title: "AI Tools That Help You Earn Money", page: "article13.html" },
+{ id: 15, title: "Best AI Tools for Website Building", page: "article14.html" },
+];

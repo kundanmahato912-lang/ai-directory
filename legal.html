@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+line-height:1.8;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+.navbar{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 3%;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(12px);
+box-shadow:0 4px 20px rgba(0,0,0,.05);
+z-index:1000;
+}
+
+/* LOGO */
+
+.logo{
+display:flex;
+align-items:center;
+flex-shrink:0;
+}
+
+.logo a{
+display:flex;
+align-items:center;
+text-decoration:none;
+}
+
+/* DESKTOP LOGO */
+
+.logo-desktop{
+display:block;
+height:60px;
+width:auto;
+object-fit:contain;
+}
+
+/* MOBILE LOGO */
+
+.logo-mobile{
+display:none;
+}
+
+/* NAVIGATION */
+
+.nav-links{
+display:flex;
+align-items:center;
+list-style:none;
+gap:14px;
+}
+
+.nav-links li{
+list-style:none;
+}
+
+.nav-links a{
+display:flex;
+align-items:center;
+gap:8px;
+padding:12px 18px;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+color:#374151;
+background:white;
+border-radius:999px;
+box-shadow:0 4px 12px rgba(0,0,0,.06);
+transition:all .3s ease;
+}
+
+.nav-links a:hover{
+transform:translateY(-2px);
+background:linear-gradient(
+135deg,
+#4F46E5,
+#7C3AED
+);
+color:white;
+box-shadow:0 10px 25px rgba(79,70,229,.25);
+}
+
+.nav-links a i{
+font-size:14px;
+}
+
+/* PAGE CONTENT */
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:60px 20px;
+}
+
+.page-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.page-title h1{
+font-size:42px;
+margin-bottom:15px;
+color:#111827;
+}
+
+.page-title p{
+color:#64748b;
+}
+
+.section{
+scroll-margin-top:100px;
+background:#ffffff;
+padding:40px;
+margin-bottom:30px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.section h2{
+margin-bottom:20px;
+color:#6d28d9;
+}
+
+.section p{
+margin-bottom:15px;
+color:#475569;
+}
+
+.contact-box{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-top:20px;
+}
+
+.contact-box a{
+text-decoration:none;
+color:#6d28d9;
+font-weight:600;
+}
+
+.contact-box a:hover{
+text-decoration:underline;
+}
+
+.footer{
+text-align:center;
+padding:30px;
+background:#ffffff;
+border-top:1px solid #e5e7eb;
+color:#64748b;
+margin-top:40px;
+}
+
+.container{
+padding:40px 15px;
+}
+
+.section{
+padding:20px;
+}
+
+/* MOBILE */
+
+.menu-btn{
+display:none;
+width:45px;
+height:45px;
+border-radius:12px;
+background:white;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+justify-content:center;
+align-items:center;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:10px 4%;
+    position:relative;
+  }
+
+  /* Dono duplicate rulesets ko mila kar ek clean rule bana diya */
+  .nav-links{
+    position:absolute;
+    top:75px; /* logo ke hisab se height check kar lein */
+    left:0;
+    width:100%;
+    background:#ffffff;
+    display:none; /* Default me hidden rahega */
+    flex-direction:column;
+    padding:20px;
+    gap:12px;
+    border-top:1px solid #eee;
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+    z-index:9999;
+  }
+
+  /* JS toggle hone par ye display flex karega */
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a{
+    width:100%;
+    justify-content:center;
+  }
+
+  .logo-desktop{
+    display:none;
+  }
+
+  .logo-mobile{
+    display:block;
+    height:50px;
+    width:auto;
+    object-fit:contain;
+  }
+
+  .menu-btn{
+    display:flex;
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:white;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:24px;
+    color:#4F46E5;
+  }
+}
+ 
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+.logo-mobile{
+height:44px;
+}
+
+.menu-btn{
+font-size:22px;
+}
+
+.container{
+padding:25px 12px;
+}
+
+.page-title{
+margin-bottom:30px;
+}
+
+.page-title h1{
+font-size:28px;
+line-height:1.3;
+}
+
+.page-title p{
+font-size:14px;
+}
+
+.section{
+padding:18px;
+border-radius:15px;
+}
+
+.section h2{
+font-size:24px;
+}
+
+.section p{
+font-size:15px;
+}
+
+.footer{
+padding:20px;
+font-size:14px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<a href="index.html">
+
+<img
+src="images/AI Directory2.png"
+alt="AI Directory"
+class="logo-desktop"
+>
+
+<img
+src="images/AI Directory1.png"
+alt="AI Directory"
+class="logo-mobile"
+>
+
+</a>
+
+</div>
+
+<ul class="nav-links">
+
+<li>
+<a href="index.html">
+<i class="fas fa-home"></i>
+Home
+</a>
+</li>
+
+<li>
+<a href="#about">
+<i class="fas fa-circle-info"></i>
+About
+</a>
+</li>
+
+<li>
+<a href="#contact">
+<i class="fas fa-envelope"></i>
+Contact
+</a>
+</li>
+
+<li>
+<a href="#privacy">
+<i class="fas fa-user-shield"></i>
+Privacy
+</a>
+</li>
+
+<li>
+<a href="#terms">
+<i class="fas fa-file-contract"></i>
+Terms
+</a>
+</li>
+
+<li>
+<a href="#disclaimer">
+<i class="fas fa-triangle-exclamation"></i>
+Disclaimer
+</a>
+</li>
+
+</ul>
+
+<div class="menu-btn">
+<i class="fas fa-bars"></i>
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="page-title">
+<h1>Legal Information</h1>
+<p>
+About Us, Contact Information, Privacy Policy,
+Terms & Conditions and Disclaimer.
+</p>
+</div>
+
+<section id="about" class="section">
+
+<h2>About Us</h2>
+
+<p>
+AI Directory is a platform that helps users discover the best AI tools,
+AI prompts, tutorials and resources in one place.
+</p>
+
+<p>
+Our mission is to make artificial intelligence accessible for everyone
+by providing a curated collection of useful AI tools across multiple
+categories.
+</p>
+
+<p>
+Whether you are a student, creator, developer, marketer or business
+owner, our goal is to help you find the right AI tools quickly and easily.
+</p>
+
+</section>
+
+<section id="contact" class="section">
+
+<h2>Contact Us</h2>
+
+<p>
+If you have any questions, suggestions or business inquiries,
+feel free to contact us.
+</p>
+
+<div class="contact-box">
+
+<a href="mailto:your@email.com">
+📧 your@email.com
+</a>
+
+<a href="https://t.me/yourtelegram" target="_blank">
+📱 Telegram
+</a>
+
+</div>
+
+</section>
+
+<section id="privacy" class="section">
+
+<h2>Privacy Policy</h2>
+
+<p>
+We respect your privacy and are committed to protecting your personal information.
+</p>
+
+<p>
+Our website may collect non-personal information such as browser type,
+device information and website usage statistics for analytics purposes.
+</p>
+
+<p>
+We may use cookies to improve user experience and website functionality.
+</p>
+
+<p>
+Third-party services such as Google Analytics and Google AdSense may use cookies
+to provide analytics and personalized advertisements.
+</p>
+
+<p>
+By using our website, you agree to this Privacy Policy.
+</p>
+
+</section>
+
+<section id="terms" class="section">
+
+<h2>Terms & Conditions</h2>
+
+<p>
+By accessing and using AI Directory, you agree to comply with these terms and conditions.
+</p>
+
+<p>
+All content provided on this website is for informational purposes only.
+</p>
+
+<p>
+Users are responsible for evaluating any AI tool, service or product before use.
+</p>
+
+<p>
+We reserve the right to modify, update or remove content without prior notice.
+</p>
+
+<p>
+Unauthorized copying or redistribution of website content is prohibited.
+</p>
+
+</section>
+
+<section id="disclaimer" class="section">
+
+<h2>Disclaimer</h2>
+
+<p>
+AI Directory provides information about third-party AI tools and services.
+</p>
+
+<p>
+We do not own, control or guarantee the accuracy, availability or performance
+of third-party tools listed on this website.
+</p>
+
+<p>
+Tool pricing, features and availability may change at any time without notice.
+</p>
+
+<p>
+Users should verify information directly from the official websites of the respective tools.
+</p>
+
+<p>
+AI Directory is not responsible for any loss, damage or issues resulting from
+the use of third-party services.
+</p>
+
+</section>
+
+</div>
+
+<footer class="footer">
+© 2026 AI Directory. All Rights Reserved.
+</footer>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+        menuBtn.onclick = function(e) {
+            e.stopPropagation(); // Doosre clicks ko interfere karne se rokne ke liye
+            navLinks.classList.toggle("active");
+        };
+
+        // Mobile me link par click karte hi menu band karne ke liye
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+    }
+});
+
+</script>
+
+</body>
+</html>

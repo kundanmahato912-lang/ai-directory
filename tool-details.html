@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="html-title">AI Tool Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+   <style>
+    
+        /* =======================================================
+           DETAILED PAGE CUSTOM EXTRA STYLING (MATCHING MAIN CSS)
+           ======================================================= */
+        .detail-page-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 4%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Left Side Content Card */
+        .main-detail-card {
+            background: rgba(255, 255, 255, 0.85); /* Thoda opaque kiya taaki shadow achhi dikhe */
+            border: 1px solid var(--card-border);
+            padding: 40px;
+            border-radius: 28px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            /* Premium Layered Shadow Jo Card Ko Background Se Alag Karega */
+            box-shadow: 
+                0 4px 6px -1px rgba(15, 23, 42, 0.02),
+                0 20px 30px -4px rgba(15, 23, 42, 0.05),
+                inset 0 1px 0px #ffffff; /* Inner white border for crisp premium cut */
+        }
+
+        /* Right Side Quick Info Sidebar Table */
+        .sidebar-info-card {
+            background: rgba(255, 255, 255, 0.85); /* Thoda opaque kiya */
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            border-radius: 28px;
+            backdrop-filter: blur(10px);
+            height: max-content;
+            position: sticky;
+            top: 100px;
+            /* Premium Layered Shadow matching main card */
+            box-shadow: 
+                0 4px 6px -1px rgba(15, 23, 42, 0.02),
+                0 20px 30px -4px rgba(15, 23, 42, 0.05),
+                inset 0 1px 0px #ffffff;
+        }
+        /* =======================================================
+           PREMIUM CYBERPUNK GLOWING LOGO DESIGN (UNIVERSAL FIX)
+           ======================================================= */
+        .tool-header-area {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 30px;
+        }
+
+        .cyber-logo-wrapper {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Background animated neon orange glow */
+        .cyber-glow-bg {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background: linear-gradient(45deg, #cc7a00, #ea580c, #f97316, #cc7a00);
+            background-size: 400%;
+            border-radius: 24px;
+            z-index: 1;
+            filter: blur(8px);
+            opacity: 0.6;
+            animation: cyberGlowShift 8s linear infinite;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Main Inner Box - Translucency completely fixed */
+        .tool-main-logo-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: transparent !important; /* Piche ka black layer hataya */
+            border: 2px solid rgba(15, 23, 42, 0.15); /* Changed from white to slate dark border overlay */
+            padding: 4px;
+            border-radius: 24px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* FOOLPROOF FIX: Box ke andar koi bhi img tag ho, vo ab proper dikhegi */
+        .tool-main-logo-box img, 
+        .claude-page-logo {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: 18px !important;
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: relative !important;
+            z-index: 5 !important;
+            transition: transform 0.3s ease;
+        }
+
+        /* INTERACTIVE EFFECTS ON HOVER */
+        .cyber-logo-wrapper:hover .cyber-glow-bg {
+            opacity: 0.9;
+            filter: blur(12px);
+        }
+
+        .cyber-logo-wrapper:hover .tool-main-logo-box {
+            border-color: rgba(234, 88, 12, 0.6);
+            transform: scale(1.02);
+        }
+
+        .cyber-logo-wrapper:hover .tool-main-logo-box img {
+            transform: scale(1.05);
+        }
+
+        @keyframes cyberGlowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .tool-title-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-header-area h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-main), #475569); /* Changed from white to deep slate main text color */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* =======================================================
+           ICON NEON GLOW EFFECTS (MATCHING IMAGE 2 STYLE)
+           ======================================================= */
+        .detail-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main); /* Changed from white to deep slate */
+            margin: 35px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border-left: 2px solid var(--secondary);
+            padding-left: 5px;
+        }
+
+        .detail-section-title i {
+            color: var(--text-main) !important; /* Changed from white to deep slate */
+        }
+
+        .detail-text-p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .features-bullet-list li i,
+        .detail-section-title i,
+        .faq-header i,
+        .pc-box ul li i {
+            width: 20px !important;
+            height: 20px !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0 !important;
+            text-align: center;
+        }
+
+        .features-bullet-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .features-bullet-list li {
+            font-size: 14.5px;
+            color: var(--text-main); /* Changed from slate-300 to deep slate */
+            background: rgba(15, 23, 42, 0.03); /* Changed from light-transparent white to light-transparent dark slate */
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 23, 42, 0.05); /* Changed from glowing white to subtle dark border */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .features-bullet-list li i {
+            color: var(--primary) !important; /* Kept primary color sync */
+        }
+
+        .features-bullet-list li:hover {
+            background: rgba(15, 23, 42, 0.06); /* Hover adjust for light mode tint */
+            border-color: rgba(234, 88, 12, 0.2);
+        }
+
+        .pros-cons-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pc-box {
+            background: rgba(15, 23, 42, 0.04); /* Changed from black-transparent to light slate shade */
+            border: 1px solid var(--card-border);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .pc-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pc-box.pros-box h3 { color: #10b981; }
+        .pc-box.pros-box i {
+            color: #10b981 !important;
+        }
+
+        .pc-box.cons-box h3 { color: #ef4444; }
+        .pc-box.cons-box i {
+            color: #ef4444 !important;
+        }
+
+        .pc-box ul { list-style: none; }
+        .pc-box ul li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: var(--text-muted); /* Changed from light slate grey to dark text muted color */
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        /* Sidebar table layout */
+        .sidebar-table-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05); /* Changed border to a subtle slate overlay */
+            font-size: 14px;
+        }
+
+        .sidebar-table-row:last-child { border: none; }
+        .sb-label { color: var(--text-muted); font-weight: 500; }
+        .sb-value { color: var(--text-main); font-weight: 600; text-align: right; } /* Changed value from white to deep slate text */
+
+        .sidebar-action-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            background: linear-gradient(39deg, var(--primary), var(--secondary)); /* Using variables to adapt button automatically */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.35);
+        }
+
+        /* Pricing Card Grid Layout */
+        .pricing-tier-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .price-card {
+            background: rgba(15, 23, 42, 0.02); /* Changed transparent white to transparent light slate */
+            border: 1px solid rgba(15, 23, 42, 0.06); /* Inverted border tint */
+            padding: 20px;
+            border-radius: 16px;
+            text-align: left;
+            transition: border-color 0.3s;
+        }
+
+        .price-card:hover { border-color: #ea580c; }
+
+        .price-card h4 {
+            font-size: 16px;
+            color: var(--text-main); /* Changed header text from white to deep slate */
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .price-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Accordion FAQ Styling */
+        .faq-accordion-item {
+            background: rgba(15, 23, 42, 0.01); /* Inverted background alpha layer */
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-header {
+            padding: 18px 22px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-main); /* Changed text from white to deep slate */
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-header:hover { background: rgba(15, 23, 42, 0.03); }
+
+        .faq-body {
+            padding: 0 22px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            background: rgba(15, 23, 42, 0.03); /* Changed background from dark mask to very soft light slate mask */
+        }
+
+        .faq-accordion-item.active .faq-body {
+            padding: 18px 22px;
+            max-height: 200px;
+            border-top: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .faq-accordion-item .fa-chevron-down {
+            transition: transform 0.3s;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .faq-accordion-item.active .fa-chevron-down {
+            transform: rotate(180deg);
+            color: #ea580c;
+        }
+
+        /* Tablet & Mobile Breakpoints */
+        @media (max-width: 992px) {
+            .nav-links {
+        display: none; /* Default me hidden rahe */
+        flex-direction: column;
+        /* Baki aapki mobile menu ki styling */
+    }
+    
+    .nav-links.active {
+        display: flex; /* Click hone par show ho jaye */
+    }
+            .detail-page-container { grid-template-columns: 1fr; }
+            .sidebar-info-card { position: static; }
+        }
+
+        @media (max-width: 600px) {
+         .detail-section-title {
+    font-size: 20px;
+  }
+            .main-detail-card { padding: 25px; }
+            .pros-cons-container, .pricing-tier-grid { grid-template-columns: 1fr; }
+            .tool-header-area h1 { font-size: 1.6rem; }
+            .tool-header-area { gap: 18px; }
+            .cyber-logo-wrapper { width: 75px; height: 75px; }
+        }
+
+</style>
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/AI Directory2.png" alt="AI Directory" class="logo-desktop">
+            <img src="images/AI Directory1.png" alt="AI Directory" class="logo-mobile">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#categories"><i class="fas fa-layer-group"></i> Categories</a></li>
+            <li><a href="index.html#tools"><i class="fas fa-screwdriver-wrench"></i> AI Tools</a></li>
+            <li><a href="index.html#prompts"><i class="fas fa-lightbulb"></i> AI Prompts</a></li>
+            <li><a href="legal.html#about"><i class="fas fa-circle-info"></i> About Us</a></li>
+        </ul>
+        <button class="menu-btn" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="detail-page-container">
+
+        <main class="main-detail-card">
+            <div class="tool-header-area">
+                <div class="cyber-logo-wrapper">
+                    <div class="cyber-glow-bg" id="dynamic-glow"></div>
+                    <div class="tool-main-logo-box">
+                        <img id="tool-img" src="" alt="Logo" class="gemini-page-logo">
+                    </div>
+                </div>
+                <div class="tool-title-meta">
+                    <div class="highlight-badge" id="tool-badge" style="margin-bottom: 8px; padding: 6px 14px; width: max-content;">
+                        <span class="badge-icon" id="badge-icon-box" style="padding: 3px 6px; border-radius: 6px; margin-right: 6px;"><i id="badge-icon"></i></span>
+                        <span class="badge-text" id="badge-text" style="color: #000000; font-weight: 700; font-size: 11px; letter-spacing: 0.5px;"></span>
+                    </div>
+                    <h1 id="tool-name"></h1>
+                </div>
+            </div>
+
+            <h2 class="detail-section-title"><i class="fas fa-star-of-life"></i> What is <span class="tool-name-insert"></span>?</h2>
+            <div id="paragraphs-container"></div>
+
+            <h2 class="detail-section-title"><i class="fas fa-bolt"></i> Key Features & Capabilities</h2>
+            <ul class="features-bullet-list" id="features-container"></ul>
+
+            <h2 class="detail-section-title"><i class="fas fa-terminal"></i> Best Use Cases</h2>
+            <div id="usecases-container"></div>
+
+            <h2 class="detail-section-title"><i class="fas fa-scale-balanced"></i> Technical Assessment</h2>
+            <div class="pros-cons-container">
+                <div class="pc-box pros-box">
+                    <h3><i class="fas fa-circle-check"></i> Pros / Advantages</h3>
+                    <ul id="pros-container"></ul>
+                </div>
+                <div class="pc-box cons-box">
+                    <h3><i class="fas fa-circle-xmark"></i> Cons / Limitations</h3>
+                    <ul id="cons-container"></ul>
+                </div>
+            </div>
+
+            <h2 class="detail-section-title"><i class="fas fa-tags"></i> Subscription Frameworks</h2>
+            <div class="pricing-tier-grid" id="pricing-container"></div>
+
+            <h2 class="detail-section-title"><i class="fas fa-tags"></i> Alternatives</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:15px;" id="alternatives-container"></div>
+
+            <h2 class="detail-section-title"><i class="fas fa-circle-question"></i> Frequently Asked Questions</h2>
+            <div class="faq-container" id="faq-container"></div>
+
+            <h2 class="detail-section-title"><i class="fas fa-quote-left"></i> Final Verdict</h2>
+            <p class="detail-text-p" id="final-verdict" style="font-style: italic; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04);"></p>
+        </main>
+        <aside class="sidebar-info-card">
+
+            <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #000000;"><i class="fas fa-clipboard-list" style="color: #60a5fa; margin-right: 8px;"></i> Quick Specifications</h3>
+            <div class="sidebar-table-row"><span class="sb-label">Developer</span><span class="sb-value" id="spec-dev"></span></div>
+            <div class="sidebar-table-row"><span class="sb-label">Category</span><span class="sb-value" id="spec-cat"></span></div>
+            <div class="sidebar-table-row"><span class="sb-label">Platforms</span><span class="sb-value" id="spec-plat"></span></div>
+            <div class="sidebar-table-row"><span class="sb-label">Global Score</span><span class="sb-value" style="color: #fbbf24;"><i class="fas fa-star"></i> <span id="spec-score"></span></span></div>
+            <div class="sidebar-table-row"><span class="sb-label">Pricing Mode</span><span class="sb-value" style="color: #10b981;" id="spec-mode"></span></div>
+
+            <button class="sidebar-action-btn" id="spec-btn" onclick="">
+                Access <span class="tool-name-insert"></span> Official <i class="fas fa-arrow-up-right-from-square"></i>
+            </button>
+
+            <div class="sidebar-ad-card">
+                <span class="ad-badge">Sponsored</span>
+                <div class="ad-info-text">
+                    <i class="fa-solid fa-box-tissue"></i>
+                    <span>Vertical Sidebar Ad Slot<br><small style="color:#94a3b8;">Skyscraper Banner</small></span>
+                </div>
+            </div>
+            
+        </aside>
+        
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>AI Directory</h2>
+                <p>Discover the best AI tools, prompts, tutorials and resources in one place.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#tools">AI Tools</a>
+                <a href="index.html#prompts">AI Prompts</a>
+            </div>
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <a href="mailto:your@email.com"><i class="fa-solid fa-envelope"></i> your@email.com</a>
+                <a href="https://t.me/smooth_looters" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 AI Directory. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="tools-data.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const toolKey = urlParams.get('tool') || 'gemini'; 
+
+        if (toolsData[toolKey]) {
+            const data = toolsData[toolKey];
+
+            // 1. Core Meta Setup
+            document.title = data.title;
+            document.getElementById('tool-name').innerText = data.name;
+            document.getElementById('tool-img').src = data.image;
+            document.getElementById('tool-img').alt = data.name + " Logo";
+            
+            document.getElementById('badge-text').innerText = data.badgeText;
+            document.getElementById('badge-icon').className = data.badgeIcon;
+            document.getElementById('badge-icon-box').style.background = data.badgeGradient;
+            document.getElementById('dynamic-glow').style.background = data.badgeGradient;
+            
+            document.querySelectorAll('.tool-name-insert').forEach(el => el.innerText = data.name);
+
+            // 2. Render Description Paragraphs
+            const pContainer = document.getElementById('paragraphs-container');
+            pContainer.innerHTML = '';
+            data.paragraphs.forEach(p => {
+                pContainer.innerHTML += `<p class="detail-text-p">${p}</p>`;
+            });
+
+            // 3. Render Features List
+            const featContainer = document.getElementById('features-container');
+            featContainer.innerHTML = '';
+            data.features.forEach(f => {
+                featContainer.innerHTML += `<li><i class="${f.icon}"></i> ${f.text}</li>`;
+            });
+
+            // 4. Render Use Cases
+            const ucContainer = document.getElementById('usecases-container');
+            ucContainer.innerHTML = '';
+            data.useCases.forEach(uc => {
+                ucContainer.innerHTML += `<p class="detail-text-p"><strong>${uc.label}</strong> ${uc.text}</p>`;
+            });
+
+            // 5. Render Pros & Cons
+            const prosContainer = document.getElementById('pros-container');
+            prosContainer.innerHTML = '';
+            data.pros.forEach(pro => {
+                prosContainer.innerHTML += `<li><i class="fa-solid fa-circle-check"></i> ${pro}</li>`;
+            });
+
+            const consContainer = document.getElementById('cons-container');
+            consContainer.innerHTML = '';
+            data.cons.forEach(con => {
+                consContainer.innerHTML += `<li><i class="fa-solid fa-circle-xmark"></i> ${con}</li>`;
+            });
+
+            // 6. Render Pricing Grid Layouts
+            const priceContainer = document.getElementById('pricing-container');
+            priceContainer.innerHTML = '';
+            data.pricing.forEach(p => {
+                const isEnterprise = p.price.toLowerCase().includes('business') || p.price.toLowerCase().includes('enterprise');
+                const priceDisplay = isEnterprise ? `<span class="price-amount enterprise-mode">${p.price}</span>` : `<span class="price-amount">${p.price}</span>`;
+                
+                priceContainer.innerHTML += `
+                    <div class="price-card">
+                        <h4><span>${p.plan}</span></h4>
+                        <div class="card-price-value">${priceDisplay}</div>
+                        <p>${p.desc}</p>
+                    </div>`;
+            });
+
+            // 7. Render Alternatives Pills
+            const altContainer = document.getElementById('alternatives-container');
+            altContainer.innerHTML = '';
+            data.alternatives.forEach(alt => {
+                altContainer.innerHTML += `<span class="badge alternative-item-badge">${alt}</span>`;
+            });
+
+            // 8. Render Accordion Items FAQ
+            const faqContainer = document.getElementById('faq-container');
+            faqContainer.innerHTML = '';
+            data.faqs.forEach(faq => {
+                faqContainer.innerHTML += `
+                    <div class="faq-accordion-item">
+                        <div class="faq-header">
+                            ${faq.q} 
+                            <span class="faq-icon-toggle"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="faq-body">
+                            <p>${faq.a}</p>
+                        </div>
+                    </div>`;
+            });
+
+            // 9. Verdict Mapping
+            document.getElementById('final-verdict').innerText = `"${data.verdict}"`;
+
+            // 10. Sidebar Specs Mapping
+            document.getElementById('spec-dev').innerText = data.specs.developer;
+            document.getElementById('spec-cat').innerText = data.specs.category;
+            document.getElementById('spec-plat').innerText = data.specs.platforms;
+            document.getElementById('spec-score').innerText = data.specs.score;
+            document.getElementById('spec-mode').innerText = data.specs.mode;
+            
+            const mainBtn = document.getElementById('spec-btn');
+            mainBtn.onclick = function() {
+                window.open(data.specs.link, '_blank');
+            };
+
+            // Accordion Runtime Handler
+            setTimeout(() => {
+                document.querySelectorAll('.faq-header').forEach(header => {
+                    header.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const item = header.parentElement;
+                        const icon = header.querySelector('.faq-icon-toggle i');
+                        
+                        item.classList.toggle('active');
+                        icon.className = item.classList.contains('active') ? "fa-solid fa-minus" : "fa-solid fa-plus";
+                        
+                        document.querySelectorAll('.faq-accordion-item').forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                                const otherIcon = otherItem.querySelector('.faq-icon-toggle i');
+                                if(otherIcon) otherIcon.className = "fa-solid fa-plus";
+                            }
+                        });
+                    });
+                });
+            }, 100);
+
+        } else {
+            document.querySelector('.detail-page-container').innerHTML = `
+                <div class="main-detail-card" style="text-align:center; grid-column: 1 / -1; padding: 80px 20px;">
+                    <i class="fa-solid fa-circle-exclamation" style="font-size: 4rem; color: #ef4444; margin-bottom: 20px;"></i>
+                    <h2>Tool Configuration Missing</h2>
+                    <p style="color: #94a3b8; margin-top: 10px;">The database entry for this key doesn't exist.</p>
+                </div>`;
+        }
+
+        // Mobile Menu Toggle Script
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Icon badalne ke liye (Bars se Cross icon)
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.className = 'fas fa-xmark';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+    }
+});
+</script>
+
+    <div class="sticky-anchor-ad" id="stickyAnchorAd">
+    <button class="sticky-ad-close" onclick="document.getElementById('stickyAnchorAd').style.display='none'"><i class="fa-solid fa-xmark"></i></button>
+    <div class="smart-ad-placeholder" style="border:none; background:none; box-shadow:none;">
+      <span class="ad-badge" style="top: -8px; left: 0;">Overlay Ad</span>
+      <div class="ad-info-text" style="font-size: 12px;">
+        <span><i class="fa-solid fa-window-maximize" style="display:inline; margin-right:5px;"></i> Responsive Floating Anchor Ad Slot</span>
+      </div>
+    </div>
+   </div>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Directory</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/AI Directory2.png" alt="AI Directory" class="logo-desktop">
+      <img src="images/AI Directory1.png" alt="AI Directory" class="logo-mobile">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#tools"><i class="fas fa-robot"></i>AI Tools</a></li>
+      <li><a href="#courses"><i class="fas fa-graduation-cap"></i>Free Courses</a></li>
+      <li><a href="#prompts"><i class="fas fa-lightbulb"></i>Prompts</a></li>
+      <li><a href="#articles-section"><i class="fas fa-newspaper"></i>Articles</a></li>
+      <li><a href="legal.html#about"><i class="fas fa-circle-info"></i> About Us</a></li>
+    </ul>
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="blur-glow glow-1"></div>
+    <div class="blur-glow glow-2"></div>
+    <div class="hero-content">
+      <div class="hero-ticker-wrapper">
+        <div class="ticker-indicator"></div>
+        <div class="ticker-scroll-container">
+          <div class="ticker-track">
+            <span class="ticker-item" onclick="window.open('article.html', '_blank')">Best AI Tools for Content Creators</span>
+            <span class="ticker-item" onclick="window.open('article3.html', '_blank')">ChatGPT vs Claude vs Gemini: Full Comparison</span>
+            <span class="ticker-item" onclick="window.open('article13.html', '_blank')">AI Tools That Help You Earn Money</span>
+            <span class="ticker-item" onclick="window.open('article.html', '_blank')">Best AI Tools for Content Creators</span>
+            <span class="ticker-item" onclick="window.open('article3.html', '_blank')">ChatGPT vs Claude vs Gemini: Full Comparison</span>
+          </div>
+        </div>
+        <button class="ticker-all-btn" id="tickerAllBtn">ALL</button>
+      </div>
+
+      <div class="highlight-badge">
+        <span class="badge-icon"><i class="fas fa-fire"></i></span>
+        <span class="badge-text">Explore <b>420+ Ultimate AI Tools</b> Live</span>
+      </div>
+
+      <h1>Discover the Best <span class="gradient-text">AI Tools</span></h1>
+      <p>Discover, Learn, and Grow with AI — Curated Tools, Courses, Tutorials, Articles, and Prompts.</p>
+
+      <div class="view-switcher-container">
+        <button id="switchToolsBtn" class="switcher-btn active" onclick="switchView('tools')">
+          <i class="fas fa-robot"></i> AI Tools
+        </button>
+        <button id="switchPromptsBtn" class="switcher-btn" onclick="switchView('prompts')">
+          <i class="fas fa-lightbulb"></i> AI Prompts
+        </button>
+      </div>
+
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search AI tools, prompt by name or category...">
+      </div>
+
+      <div class="hero-action-box">
+        <button class="hero-btn" id="heroExploreBtn" onclick="scrollToCurrentSection()">
+          <i class="fas fa-rocket"></i> <span id="exploreBtnText">Explore Tools</span>
+        </button>
+        <div class="stats-bar">
+          <p id="resultCount"><i class="fas fa-circle-check"></i> 0 Tools Found</p>
+        </div>
+      </div>
+
+      <div class="hero-social-links">
+        <a href="https://youtube.com/YOUR_CHANNAL" target="_blank" class="social-icon-btn yt" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="social-icon-btn fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com/YOUR_PROFILE" target="_blank" class="social-icon-btn ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://t.me/smooth_looters" target="_blank" class="social-icon-btn tg" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOGLE ADS: MAIN RESPONSIVE HORIZONTAL BANNER -->
+<div class="ad-container-wrapper">
+  <div class="smart-ad-placeholder ad-banner-horizontal">
+    <span class="ad-badge">Sponsored Advertisement</span>
+    <div class="ad-info-text">
+      <i class="fa-solid fa-rectangle-ad"></i>
+      <!-- Real Google Ad Code (Commented for now)
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_CLIENT_ID"
+           data-ad-slot="YOUR_SLOT_ID"
+           data-ad-format="auto"
+           full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span>Responsive Leaderboard Ad Slot (Will active after approval)</span>
+    </div>
+  </div>
+</div>
+
+  <section id="tools" class="tools">
+    <h2>AI Tools</h2>
+     <div class="category-wrapper">
+      <button id="scrollLeft" class="scroll-btn left">❮</button>
+      <div class="category-buttons" id="categoryButtons">
+        </div>
+      <button id="scrollRight" class="scroll-btn right">❯</button>
+    </div>
+
+    <div class="tools-type-filter">
+      <button class="type-btn active" data-type="all"><i class="fas fa-border-all"></i> All Tools</button>
+      <button class="type-btn" data-type="popular"><i class="fas fa-fire"></i> Popular Tools</button>
+      <button class="type-btn" data-type="new"><i class="fas fa-sparkles"></i> New Tools</button>
+    </div>
+    <div id="toolsContainer" class="tools-grid"></div>
+    <div id="loadMoreContainer">
+      <button id="loadMoreBtn" class="load-more-btn">Load More Tools</button>
+    </div>
+  </section>
+
+
+  <section id="prompts" class="prompts">
+    <h2>AI Prompts</h2>
+
+    <div class="prompt-note-container">
+      <h3><i class="fas fa-exclamation-circle"></i> Important Note:</h3>
+      <p>Before using any prompt, please check the Requirements section carefully. Some prompts may require additional inputs such as text, images, files, scripts, stories, articles, documents, or other content.</p>
+      <ul>
+        <li><i class="fas fa-arrow-right"></i> <strong>If the requirement is text-based</strong>, you will find a <code>[Paste Your Text Here]</code> section inside the prompt. Simply paste your content there before generating.</li>
+        <li><i class="fas fa-arrow-right"></i> <strong>If the requirement includes images, PDFs, or files</strong>, upload them directly to the AI tool before running the prompt.</li>
+      </ul>
+      <p class="note-footer">Providing the required input ensures that the prompt works correctly and delivers the best possible results.</p>
+      <div class="tip-box">
+        <strong>Tip:</strong> Always read the prompt description and requirements before using it to avoid errors. 🚀
+      </div>
+    </div>
+
+    <div class="category-wrapper" style="margin-bottom: 30px;">
+      <button id="promptScrollLeft" class="scroll-btn left">❮</button>
+      <div class="category-buttons" id="promptCategoryButtons">
+        </div>
+      <button id="promptScrollRight" class="scroll-btn right">❯</button>
+    </div>
+
+    <div id="promptsContainer" class="prompts-grid"></div>
+    <div class="load-more-container-shared">
+      <button id="loadMorePromptsBtn" class="load-more-btn">Load More Prompts</button>
+    </div>
+  </section>
+
+  <section id="courses" class="courses">
+    <h2>AI Free Course</h2>
+    <div id="coursesContainer" class="courses-grid"></div>
+    <div class="load-more-container-shared">
+      <button id="loadMoreCoursesBtn" class="load-more-btn">Load More Courses</button>
+    </div>
+  </section>
+
+  <!-- GOOGLE ADS: MAIN RESPONSIVE HORIZONTAL BANNER -->
+<div class="ad-container-wrapper">
+  <div class="smart-ad-placeholder ad-banner-horizontal">
+    <span class="ad-badge">Sponsored Advertisement</span>
+    <div class="ad-info-text">
+      <i class="fa-solid fa-rectangle-ad"></i>
+      <!-- Real Google Ad Code (Commented for now)
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_CLIENT_ID"
+           data-ad-slot="YOUR_SLOT_ID"
+           data-ad-format="auto"
+           full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span>Responsive Leaderboard Ad Slot (Will active after approval)</span>
+    </div>
+  </div>
+</div>
+
+  <section id="articles-section" class="articles-section">
+    <h2>AI Articles</h2>
+    <div id="articlesContainer" class="articles-list-container"></div>
+    <div class="load-more-container-shared">
+      <button id="loadMoreArticlesBtn" class="load-more-btn">Load More Articles</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>AI Directory</h2>
+        <p>Discover the best AI tools, prompts, tutorials and resources in one place.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#tools">AI Tools</a>
+        <a href="#prompts">AI Prompts</a>
+        <a href="legal.html#about">About Us</a>
+      </div>
+      <div class="footer-links">
+        <h3>Legal</h3>
+        <a href="legal.html#privacy">Privacy Policy</a>
+        <a href="legal.html#terms">Terms & Conditions</a>
+        <a href="legal.html#disclaimer">Disclaimer</a>
+      </div>
+      <div class="footer-links">
+        <h3>Contact</h3>
+        <a href="mailto:your@email.com"><i class="fa-solid fa-envelope"></i> your@email.com</a>
+        <a href="https://t.me/smooth_looters" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 AI Directory. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="data/tools.js"></script>
+  <script src="data/course.js"></script>
+  <script src="data/prompts.js"></script>
+  <script src="data/articles.js"></script>
+
+  <script src="script.js"></script>
+
+  <div class="sticky-anchor-ad" id="stickyAnchorAd">
+    <button class="sticky-ad-close" onclick="document.getElementById('stickyAnchorAd').style.display='none'"><i class="fa-solid fa-xmark"></i></button>
+    <div class="smart-ad-placeholder" style="border:none; background:none; box-shadow:none;">
+      <span class="ad-badge" style="top: -8px; left: 0;">Overlay Ad</span>
+      <div class="ad-info-text" style="font-size: 12px;">
+        <span><i class="fa-solid fa-window-maximize" style="display:inline; margin-right:5px;"></i> Responsive Floating Anchor Ad Slot</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

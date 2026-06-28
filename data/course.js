@@ -1,14 +1,28 @@
 const courses = [
   {
     id: 1,
+    type: "short", 
     title: "Generative AI for Beginners",
     image: "images/maxresdefault.jpg",
-    link: "https://youtube.com" // Course ka real link yahan aayega
+    duration: "30 second", // Real duration yahan likhein
+    url: "https://youtube.com" // Purana 'link' ab 'url' ban gaya hai
+  },
+  {
+    id: 1,
+    type: "course", 
+    title: "Generative AI for Beginners",
+    image: "images/maxresdefault.jpg",
+    duration: "5 Hours", // Real duration yahan likhein
+    url: "https://youtube.com" // Purana 'link' ab 'url' ban gaya hai
   },
   {
     id: 2,
+    type: "video", 
     title: "Prompt Engineering Masterclass",
     image: "images/maxresdefault(1).jpg",
-    link: "https://youtube.com"
-  }
+    duration: "45 Minutes", 
+    url: "https://youtube.com"
+  },
+
+  
 ];

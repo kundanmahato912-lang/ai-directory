@@ -8,7 +8,7 @@ const courses = [
     url: "https://youtube.com" // Purana 'link' ab 'url' ban gaya hai
   },
   {
-    id: 1,
+    id: 2,
     type: "course", 
     title: "Generative AI for Beginners",
     image: "images/maxresdefault.jpg",
@@ -16,7 +16,7 @@ const courses = [
     url: "https://youtube.com" // Purana 'link' ab 'url' ban gaya hai
   },
   {
-    id: 2,
+    id: 3,
     type: "video", 
     title: "Prompt Engineering Masterclass",
     image: "images/maxresdefault(1).jpg",

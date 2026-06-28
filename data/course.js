@@ -23,6 +23,4 @@ const courses = [
     duration: "45 Minutes", 
     url: "https://youtube.com"
   },
-
-  
 ];
